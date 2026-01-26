@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="fuzztest">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.zmk/modules/lib/nanopb/tests/fuzztest/regressions.zip!/" />
+      <root url="jar://$PROJECT_DIR$/.zmk/modules/lib/nanopb/tests/fuzztest/corpus.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

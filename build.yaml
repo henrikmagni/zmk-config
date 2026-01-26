@@ -17,4 +17,16 @@
 #     cmake-args: -DCONFIG_ZMK_STUDIO=y
 #     artifact-name: corne_left_with_studio
 #
----
+
+include:
+  - board: nice_nano_v2
+    shield: temper_dongle
+  # Add these cmake-args to the peripherals you wish to use with the dongle
+  - board: nice_nano_v2
+    shield: temper_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: nice_nano_v2
+    shield: temper_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: nice_nano_v2
+    shield: settings_reset
