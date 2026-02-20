@@ -1,4 +1,8 @@
-#include "temper_matrix_transform.dtsi"
+#include "temper_layout.dtsi"
+
+&physical_layout0 {
+    transform = <&default_transform>;
+};
 
 / {
     chosen {
@@ -11,11 +15,5 @@
         columns = <0>;
         rows = <0>;
         events = <0>;
-    };
-
-    physical_layout0: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        transform = <&default_transform>;
     };
 };
