@@ -27,14 +27,14 @@
         };
     };
     behaviors {
-        bspc_del: backspace_delete {
+        bspc_del: backspace_delete { // TODO Not in use
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
             keep-mods = <(MOD_RSFT)>;
         };
-        super_bspc: super_backspace {
+        super_bspc: super_backspace { // TODO Not in use
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp LA(BACKSPACE)>;
@@ -49,14 +49,15 @@
         comma_semi: comma_semi {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
+            bindings = <&kp COMMA>, <&kp P>; // because colemak_dh is used in system p = <&kp SEMI>;
             mods = <(MOD_LSFT)>;
         };
         dot_colon: dot_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
+            bindings = <&kp DOT>, <&kp P>; // because colemak_dh is used in system shift+p = <&kp COLON>;
             mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
         };
         qmrk_excl: qmrk_excl {
             compatible = "zmk,behavior-mod-morph";
@@ -83,11 +84,11 @@
                 default_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P   
+        &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O       &kp APOS   
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp A         &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L       &kp SEMI
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M      &comma_semi    &dot_colon    &kp FSLH
+        &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M      &comma_semi    &dot_colon   &qmrk_excl
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                    &mo CMD       &mo NUM     &smart_shft        &kp SPACE      &mo NAV     &to DEFAULT
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
@@ -113,7 +114,7 @@
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &kp CARET      &kp HASH      &kp LPAR      &kp RPAR      &kp DLLR         &kp UNDER       &kp N4        &kp N5        &kp N6      &kp PLUS
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &amps_morph     &kp LT       &kp LBKT      &kp RBKT       &kp GT          &slh_morph      &kp N1        &kp N2        &kp N3      &kp EQUAL
+     &amps_morph      &kp LT       &kp LBKT      &kp RBKT       &kp GT          &slh_morph      &kp N1        &kp N2        &kp N3      &kp EQUAL
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                     ______        ______        ______            &kp N0        ______        ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
@@ -123,11 +124,11 @@
                 nav_layer {
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        ______        ______        ______        ______        ______           &kp DEL       &kp HOME      &kp END       &kp TAB       &kp BSPC
+        ______        ______        ______        ______        ______           &kp BSPC      &kp HOME     &kp PG_DN     &kp PG_UP      &kp END
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &sk LSHFT     &sk LCTRL      &sk LALT      &sk LGUI       ______           &gresc        &kp LEFT      &kp DOWN       &kp UP      &kp RIGHT
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        ______        ______        ______        ______        ______            ______        &kp RET       ______        ______        ______
+        ______        ______        ______        ______        ______           &kp DEL       &kp RET        &kp TAB       ______        ______
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                     ______        ______        ______            ______        ______        ______
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
