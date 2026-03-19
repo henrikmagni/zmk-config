@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <dt-bindings/zmk/matrix_transform.h>
+#include "temper_matrix_transform.dtsi"
 
 / {
     chosen {
